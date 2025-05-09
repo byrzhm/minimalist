@@ -1,7 +1,46 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+<div class="home-container">
+  <!-- Left sidebar  -->
+  <div class="home-sidebar">
+    <div class="avatar-container">
+      <!-- Replace with your avatar image path -->
+      <img src="/images/avatar.jpg" alt="Profile Photo" class="avatar">
+    </div>
+
+    <h2>{{ .Site.Title }}</h2>
+    {{ if .Site.Params.researchField }}
+      <div class="research-field">
+        <div class="research-field-title">Research Field</div>
+        <div class="research-field-content">{{ .Site.Params.researchField }}</div>
+      </div>
+    {{ end }}
+
+    {{ with .Site.Params.social }}
+    <div class="social-links">
+      <ul>
+        {{ range sort . "weight" }}
+        {{ if .icon }}
+        <li>
+          <a href="{{ .url | safeURL }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}" {{ end }} {{ if .target
+            }}target="{{ .target }}" {{ end }} {{ if .type }}type="{{ .type }}" {{ end }}>
+            <i class="{{ .icon }}" aria-hidden="true"></i>
+          </a>
+        </li>
+        {{ else }}
+        <li>
+          <a href="{{ .url | safeURL }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}" {{ end }} {{ if .target
+            }}target="{{ .target }}" {{ end }}>{{ .name }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+
+  <!-- Right content area -->
+  <div class="home-main-content">
+    {{ .Content }}
+  </div>
+</div>
 {{ end }}

@@ -1,10 +1,18 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+<div class="page-container">
+  {{ if .Params.toc }}
+    {{/* TOC is off by default, only shown when toc: true is set in front matter */}}
+    {{ partial "toc.html" . }}
+  {{ end }}
+  <article class="content">
+    <h1>{{ .Title }}</h1>
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ .Content }}
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  </article>
+</div>
 {{ end }}
