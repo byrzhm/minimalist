@@ -609,6 +609,70 @@ footer .footer-container {
   margin-bottom: 3rem;
 }
 
+/* Language Switcher Dropdown */
+.language-switcher {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: var(--text-color);
+  padding: 8px;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: var(--background-color);
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--secondary-background);
+}
+
+.dropdown-content a.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Show dropdown content on hover */
+.language-switcher:hover .dropdown-content {
+  display: block;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .home-container {

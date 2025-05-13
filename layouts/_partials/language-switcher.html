@@ -1,0 +1,28 @@
+<!-- Language switcher dropdown -->
+<div class="language-switcher">
+  <div class="dropdown">
+    <button class="dropbtn" aria-haspopup="true" aria-label="{{ T "languageSwitcher" }}">
+      <i class="fa-solid fa-language"></i>
+      <span class="sr-only">{{ T "languageSwitcher" }}</span>
+    </button>
+    <div class="dropdown-content">
+      {{ range $.Site.Languages }}
+        {{ $lang := . }}
+        
+        {{ $permalink := "" }}
+        {{ if eq $.Kind "home" }}
+          {{ $permalink = printf "/%s/" $lang.Lang }}
+        {{ else }}
+          {{ $pageURL := $.RelPermalink }}
+          {{ $langSegment := print "/" $.Site.Language.Lang "/" }}
+          {{ $targetLangSegment := print "/" $lang.Lang "/" }}
+          {{ $permalink = replace $pageURL $langSegment $targetLangSegment }}
+        {{ end }}
+        
+        <a href="{{ $permalink }}" lang="{{ $lang.Lang }}" hreflang="{{ $lang.Lang }}" {{ if eq $.Site.Language.Lang $lang.Lang }}class="active"{{ end }}>
+          {{ $lang.LanguageName }}
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</div>

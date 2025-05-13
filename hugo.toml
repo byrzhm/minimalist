@@ -1,27 +1,82 @@
 baseURL = 'https://example.org/'
-languageCode = 'en-US'
-title = 'My New Hugo Site'
 
-[menus]
-  [[menus.main]]
-    name = 'Home'
-    pageRef = '/'
-    weight = 10
+# Multilingual configuration
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
 
-  [[menus.main]]
-    name = 'Posts'
-    pageRef = '/posts'
-    weight = 20
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageName = 'English'
+    title = "Your Space"
+    contentDir = 'content/en'
+    weight = 1
+    
+    [languages.en.params]
+      name = "Your Name"
+    
+    [languages.en.menus]
+      [[languages.en.menus.main]]
+        name = 'Home'
+        pageRef = '/'
+        weight = 10
 
-  [[menus.main]]
-    name = 'Projects'
-    pageRef = '/projects'
-    weight = 30
+      [[languages.en.menus.main]]
+        name = 'Posts'
+        pageRef = '/posts'
+        weight = 20
+
+      [[languages.en.menus.main]]
+        name = 'Projects'
+        pageRef = '/projects'
+        weight = 30
   
-  # [[menus.main]]
-  #   name = 'Tags'
-  #   pageRef = '/tags'
-  #   weight = 30
+  [languages.zh]
+    languageCode = 'zh'
+    languageName = '中文'
+    title = "你的空间"
+    contentDir = 'content/zh'
+    weight = 2
+    
+    [languages.zh.params]
+      name = "你的名字"
+    
+    [languages.zh.menus]
+      [[languages.zh.menus.main]]
+        name = '首页'
+        pageRef = '/'
+        weight = 10
+
+      [[languages.zh.menus.main]]
+        name = '文章'
+        pageRef = '/posts'
+        weight = 20
+
+      [[languages.zh.menus.main]]
+        name = '项目'
+        pageRef = '/projects'
+        weight = 30
+
+[params]
+  researchField = "Your Research Field"
+  
+  [[params.social]]
+    name = "GitHub"
+    icon = "fa-brands fa-github fa-2x"
+    weight = 1
+    # url = 
+
+  [[params.social]]
+    name = "Bilibili"
+    icon = "fa-brands fa-bilibili fa-2x"
+    weight = 2
+    # url = 
+
+  [[params.social]]
+    name = "Email"
+    icon = "fa-solid fa-envelope fa-2x"
+    weight = 3
+    # url = 
 
 
 [module]
