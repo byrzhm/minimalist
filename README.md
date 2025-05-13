@@ -81,7 +81,7 @@ hugo server -D
 - [ ] 集成评论系统
   - [ ] Disqus 支持
   - [ ] Utterances 支持
-- [ ] 添加多语言支持
+- [x] 添加多语言支持
 - [ ] 优化 SEO
   - [ ] 添加 meta 标签
   - [ ] 添加 Open Graph 标签
