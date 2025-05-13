@@ -203,6 +203,59 @@ footer .footer-container {
   text-align: center;
 }
 
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-unit) 0;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--secondary-background);
+}
+
+th {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(243, 244, 246, 0.4);
+}
+
+tbody tr:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+/* Responsive tables for mobile */
+@media (max-width: 768px) {
+  table {
+    border-radius: 6px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  th, td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
 /* Table of Contents */
 .page-container {
   position: relative;
